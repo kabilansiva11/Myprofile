@@ -52,10 +52,6 @@ def resume():
             as_attachment=True,
             mimetype="application/pdf"
         )
-    except Exception as e:
-        flash("❌ Failed to download Resume. Please try again later.", "error")
-        print(f"Error: {e}")
-        return redirect("/")
-        
+    
 if __name__ == "__main__":
     app.run(debug=True)
