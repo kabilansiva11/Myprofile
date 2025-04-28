@@ -38,11 +38,9 @@ def contact():
         print(f"Error: {e}")
         flash("❌ Failed to send message. Please try again later.", "error")
     return redirect("/")
-
 # Resume download route
 @app.route("/Resume.pdf")
 def resume():
-    # Set the correct response headers to prompt the browser to download the file
     return send_from_directory("static", "Resume.pdf")
 
 if __name__ == "__main__":
