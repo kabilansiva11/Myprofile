@@ -39,7 +39,6 @@ def contact():
         flash("❌ Failed to send message. Please try again later.", "error")
     return redirect("/")
 
-# Resume download route
 @app.route("/Resume.pdf")
 def resume():
     try:
@@ -48,6 +47,7 @@ def resume():
         flash("❌ Failed to download Resume. Please try again later.", "error")
         print(f"Error: {e}")
         return redirect("/")
+
 
 if __name__ == "__main__":
     app.run(debug=True)
