@@ -40,9 +40,9 @@ def contact():
     return redirect("/")
 
 # Resume download route
-@app.route("/resume.pdf")
+@app.route("/Resume.pdf")
 def resume():
-    return send_from_directory("static", "resume.pdf")
+    return send_from_directory("static", "Resume.pdf")
 
 if __name__ == "__main__":
     app.run(debug=True)
