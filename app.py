@@ -39,15 +39,23 @@ def contact():
         flash("❌ Failed to send message. Please try again later.", "error")
     return redirect("/")
 
+# Ensure the static directory path
+static_folder = os.path.join(os.getcwd(), 'static')
+
+# Resume download route
 @app.route("/Resume.pdf")
 def resume():
     try:
-        return send_from_directory("static", "Resume.pdf")
+        return send_from_directory(
+            static_folder,
+            "Resume.pdf",
+            as_attachment=True,
+            mimetype="application/pdf"
+        )
     except Exception as e:
         flash("❌ Failed to download Resume. Please try again later.", "error")
         print(f"Error: {e}")
         return redirect("/")
-
-
+        
 if __name__ == "__main__":
     app.run(debug=True)
