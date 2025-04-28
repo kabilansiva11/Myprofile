@@ -43,7 +43,7 @@ def contact():
 @app.route("/Resume.pdf")
 def resume():
     # Set the correct response headers to prompt the browser to download the file
-    return send_from_directory("static", "Resume.pdf", as_attachment=True)
+    return send_from_directory("static", "Resume.pdf")
 
 if __name__ == "__main__":
     app.run(debug=True)
