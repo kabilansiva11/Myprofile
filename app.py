@@ -42,7 +42,7 @@ def contact():
 # Resume download route
 @app.route("/resume.pdf")
 def resume():
-    return send_from_directory(".", "resume.pdf")
+    return send_from_directory("static", "resume.pdf")
 
 if __name__ == "__main__":
     app.run(debug=True)
