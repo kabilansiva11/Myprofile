@@ -40,18 +40,17 @@ def contact():
     return redirect("/")
 
 # Ensure the static directory path
-static_folder = os.path.join(os.getcwd(), 'static')
+#static_folder = os.path.join(os.getcwd(), 'static')
 
 # Resume download route
-@app.route("/Resume.pdf")
-def resume():
-    try:
-        return send_from_directory(
-            static_folder,
-            "Resume.pdf",
-            as_attachment=True,
-            mimetype="application/pdf"
-        )
+#@app.route("/Resume.pdf")
+#def resume():
+  #  try:
+      #  return send_from_directory(
+         #   static_folder,
+       #     "Resume.pdf",
+       #     as_attachment=True,
+       #     mimetype="application/pdf"  )
     
 if __name__ == "__main__":
     app.run(debug=True)
