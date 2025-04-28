@@ -19,14 +19,6 @@ mail = Mail(app)
 def home():
     return render_template("index.html")
 
-from flask import Flask, render_template, request, redirect, send_from_directory, flash
-from flask_mail import Mail, Message
-import os
-
-app = Flask(__name__)
-app.secret_key = 'your-secret-key'  # Needed for flash messages
-
-
 # Contact form handler
 @app.route("/contact", methods=["POST"])
 def contact():
