@@ -1,9 +1,9 @@
 from flask import Flask, render_template, request, redirect, send_from_directory, flash
 from flask_mail import Mail, Message
+import os
 
 app = Flask(__name__)
 app.secret_key = 'your-secret-key'  # Needed for flash messages
-
 # Flask-Mail configuration
 app.config["MAIL_SERVER"] = "smtp.gmail.com"
 app.config["MAIL_PORT"] = 587
@@ -18,6 +18,14 @@ mail = Mail(app)
 @app.route("/")
 def home():
     return render_template("index.html")
+
+from flask import Flask, render_template, request, redirect, send_from_directory, flash
+from flask_mail import Mail, Message
+import os
+
+app = Flask(__name__)
+app.secret_key = 'your-secret-key'  # Needed for flash messages
+
 
 # Contact form handler
 @app.route("/contact", methods=["POST"])
@@ -38,10 +46,16 @@ def contact():
         print(f"Error: {e}")
         flash("❌ Failed to send message. Please try again later.", "error")
     return redirect("/")
+
 # Resume download route
 @app.route("/Resume.pdf")
 def resume():
-    return send_from_directory("static", "Resume.pdf")
+    try:
+        return send_from_directory("static", "Resume.pdf")
+    except Exception as e:
+        flash("❌ Failed to download Resume. Please try again later.", "error")
+        print(f"Error: {e}")
+        return redirect("/")
 
 if __name__ == "__main__":
     app.run(debug=True)
