@@ -29,7 +29,7 @@ def contact():
     try:
         msg = Message(
             subject=f"New Contact Message from {name}",
-            recipients=["kabilansiva609@gmail.com"],  # ✅ Where to receive the message
+            recipients=["kabilansiva609@gmail.com"],  # Where the email will be sent
             body=f"From: {name} <{email}>\n\nMessage:\n{message}"
         )
         mail.send(msg)
